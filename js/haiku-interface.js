@@ -1,3 +1,5 @@
+var Haiku = require('./../js/haiku.js').haikuModule;
+
 $(document).ready(function(){
   $('#text-entry').submit(function(event){
     event.preventDefault();

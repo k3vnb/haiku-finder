@@ -1,9 +1,9 @@
 
-function Calculator(skinName) {
+function Haiku(skinName) {
   this.skin = skinName;
 }
 
-Calculator.prototype.pingPong = function(goal) {
+Haiku.prototype.pingPong = function(goal) {
   var output = [];
   for (var i = 1; i <= goal; i++) {
     if (i % 15 === 0) {
@@ -18,3 +18,5 @@ Calculator.prototype.pingPong = function(goal) {
   }
   return output;
 }
+
+exports.haikuModule = Haiku;
