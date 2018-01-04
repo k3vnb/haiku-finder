@@ -1,11 +1,11 @@
-var Haiku = require('./../js/haiku.js').haikuModule;
+// var Haiku = require('./../js/haiku.js').haikuModule;
+var syllable = require('syllable');
 
 $(document).ready(function(){
   $('#text-entry').submit(function(event){
     event.preventDefault();
-    console.log("hello");
-    var goal = $('#goal').val();
-    var output = pingPong(goal);
+    var theText = $('#the-text').val();
+    console.log(syllable(theText));
     output.forEach(function(element) {
   $('#solution').append("<li>" + element + "</li>");
     });

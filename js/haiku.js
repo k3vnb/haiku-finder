@@ -1,22 +1,11 @@
-
-function Haiku(skinName) {
-  this.skin = skinName;
-}
-
-Haiku.prototype.pingPong = function(goal) {
-  var output = [];
-  for (var i = 1; i <= goal; i++) {
-    if (i % 15 === 0) {
-      output.push("ping-pong");
-    } else if (i % 3 === 0) {
-      output.push("ping");
-    } else if (i % 5 === 0) {
-      output.push("pong");
-    } else  {
-      output.push(i);
-    }
-  }
-  return output;
-}
-
-exports.haikuModule = Haiku;
+// 
+// function Haiku(body) {
+//   this.body = body;
+// }
+//
+// Haiku.prototype.syllableCount = function(theText) {
+//   var sentence =
+//   console.log(syllable(theText));
+// };
+//
+// exports.haikuModule = Haiku;

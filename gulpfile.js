@@ -7,6 +7,7 @@ var jshint = require('gulp-jshint');
 var utilities = require('gulp-util');
 var buildProduction = utilities.env.production;
 var del = require('del');
+var syllable = require('syllable');
 var lib = require('bower-files')({
   "overrides":{
     "bootstrap" : {
@@ -18,6 +19,7 @@ var lib = require('bower-files')({
     }
   }
 });
+var browserSync = require('browser-sync').create();
 
 gulp.task('jsBrowserify', ['concatInterface'], function() {
   return browserify({ entries: ['./js/haiku-interface.js'] })
@@ -70,4 +72,22 @@ gulp.task('build', ['clean'], function(){
     gulp.start('jsBrowserify');
   }
   gulp.start('bower');
+});
+
+gulp.task('serve', function() {
+  browserSync.init({
+    server: {
+      baseDir: "./",
+      index: "index.html"
+    }
+  });
+  gulp.watch(['js/*.js'], ['jsBuild']);
+  gulp.watch(['bower.json'], ['bowerBuild']);
+});
+
+gulp.task('jsBuild', ['jsBrowserify', 'jshint'], function(){
+  browserSync.reload();
+});
+gulp.task('bowerBuild', ['bower'], function(){
+  browserSync.reload();
 });
